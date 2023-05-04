@@ -6,6 +6,12 @@ export default createStore({
     cards: []
   },
   getters: {
+    getCount: (state) => {
+      return state.cards.length
+    },
+    getAll: (state) => {
+      return state.cards
+    }
   },
   mutations: {
     /* 単語を保存する */
