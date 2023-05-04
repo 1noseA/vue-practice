@@ -30,6 +30,10 @@ export default createStore({
       // unshiftは先頭に保存する
       state.cards.unshift(newCard)
       }
+    },
+    delete (state, id) {
+      // 指定されたID以外のものを取り出して配列に入れる
+      state.cards = state.cards.filter(card => card.id !== id)
     }
   },
   actions: {

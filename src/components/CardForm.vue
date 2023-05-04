@@ -4,6 +4,7 @@
     <div><textarea v-model="mean"></textarea></div>
     <div class="center">
       <button @click="save">保存</button>
+      <button @click="remove" v-if="card.id">削除</button>
     </div>
   </div>
 </template>
@@ -33,6 +34,10 @@ export default {
       // storeに保存
       this.$store.commit('save', card)
       // homeに戻る
+      this.$router.push('/')
+    },
+    remove() {
+      this.$store.commit('delete', this.card.id)
       this.$router.push('/')
     }
   }
