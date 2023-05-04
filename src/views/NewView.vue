@@ -1,30 +1,13 @@
 <template>
-  <div>
-    <div><input type="text"></div>
-    <div><textarea></textarea></div>
-    <div class="center">
-      <button>保存</button>
-    </div>
-  </div>
+  <WordForm />
 </template>
 
-<!-- scopedを入れるとそのファイルだけstyleを当てることができる -->
-<style scoped>
-  div {
-    margin-bottom: 10px;
+<script>
+import WordForm from '@/components/WordForm.vue'
+export default {
+  name: 'NewView',
+  components: {
+    WordForm
   }
-  input[type=text] {
-    width: 100%;
-  }
-  textarea {
-    width: 100%;
-    height: 30em;
-  }
-  button {
-    width: 5em;
-    margin: 3px;
-  }
-  .center {
-    text-align: center;
-  }
-</style>
+}
+</script>
