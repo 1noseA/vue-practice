@@ -1,4 +1,9 @@
 import { createStore } from 'vuex'
+import { VuexPersistence } from 'vuex-persist'
+
+const vuexPersist = new VuexPersistence({
+  storage: localStorage
+})
 
 export default createStore({
   state: {
@@ -18,6 +23,7 @@ export default createStore({
     }
   },
   mutations: {
+    RESTORE_MUTATION: vuexPersist.RESTORE_MUTATION,
     /* 単語を保存する */
     save (state, newCard) {
       // IDが存在する時（編集）
@@ -39,5 +45,6 @@ export default createStore({
   actions: {
   },
   modules: {
-  }
+  },
+  plugins: [vuexPersist.plugin]
 })
