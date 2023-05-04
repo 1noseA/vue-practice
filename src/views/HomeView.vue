@@ -2,7 +2,9 @@
   <div class="home">
     <ul v-if="hasCards">
       <li v-for="card in cards" :key="card.id">
-        {{ card.word }}
+        <router-link :to="{name: 'edit', params: { id: card.id } }">
+          {{ card.word }}
+        </router-link>
       </li>
     </ul>
     <p v-else>単語はありません</p>

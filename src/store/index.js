@@ -11,6 +11,10 @@ export default createStore({
     },
     getAll: (state) => {
       return state.cards
+    },
+    // idが一致するカードを取り出す
+    getCardById: (state) => (id) => {
+      return state.cards.find(card => card.id === id)
     }
   },
   mutations: {
