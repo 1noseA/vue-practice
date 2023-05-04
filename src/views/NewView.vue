@@ -1,13 +1,13 @@
 <template>
-  <WordForm />
+  <CardForm />
 </template>
 
 <script>
-import WordForm from '@/components/WordForm.vue'
+import CardForm from '@/components/CardForm.vue'
 export default {
   name: 'NewView',
   components: {
-    WordForm
+    CardForm
   }
 }
 </script>

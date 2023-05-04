@@ -3,14 +3,24 @@
     <div><input type="text"></div>
     <div><textarea></textarea></div>
     <div class="center">
-      <button>保存</button>
+      <button @click="save">保存</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'WordForm'
+  name: 'CardForm',
+  methods: {
+    save() {
+      let card = {
+        word: '単語',
+        mean: '意味'
+      }
+
+      this.$store.commit('save', card)
+    }
+  }
 }
 </script>
 
