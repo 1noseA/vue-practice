@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div><input type="text"></div>
-    <div><textarea></textarea></div>
+    <div><input type="text" v-model="word"></div>
+    <div><textarea v-model="mean"></textarea></div>
     <div class="center">
       <button @click="save">保存</button>
     </div>
@@ -11,14 +11,22 @@
 <script>
 export default {
   name: 'CardForm',
+  data() {
+    return {
+      word: '',
+      mean: ''
+    }
+  },
   methods: {
     save() {
       let card = {
-        word: '単語',
-        mean: '意味'
+        word: this.word,
+        mean: this.mean
       }
-
+      // storeに保存
       this.$store.commit('save', card)
+      // homeに戻る
+      this.$router.push('/')
     }
   }
 }
