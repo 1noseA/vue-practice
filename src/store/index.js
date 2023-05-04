@@ -20,9 +20,16 @@ export default createStore({
   mutations: {
     /* 単語を保存する */
     save (state, newCard) {
-      newCard.id = ++state.count,
+      // IDが存在する時（編集）
+      if (newCard.id) {
+        let x = state.cards.find(card => card.id === newCard.id)
+        x.word = newCard.word
+        x.mean = newCard.mean
+      } else {
+        newCard.id = ++state.count,
       // unshiftは先頭に保存する
       state.cards.unshift(newCard)
+      }
     }
   },
   actions: {

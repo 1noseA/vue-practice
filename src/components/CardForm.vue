@@ -11,10 +11,13 @@
 <script>
 export default {
   name: 'CardForm',
+  props: [
+    'card'
+  ],
   data() {
     return {
-      word: '',
-      mean: ''
+      word: this.card.word,
+      mean: this.card.mean
     }
   },
   methods: {
@@ -22,6 +25,10 @@ export default {
       let card = {
         word: this.word,
         mean: this.mean
+      }
+      // カードIDがすでにあればIDはそのまま
+      if (this.card.id) {
+        card.id = this.card.id
       }
       // storeに保存
       this.$store.commit('save', card)

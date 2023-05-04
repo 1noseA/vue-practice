@@ -1,5 +1,5 @@
 <template>
-  <CardForm />
+  <CardForm card="" />
 </template>
 
 <script>
